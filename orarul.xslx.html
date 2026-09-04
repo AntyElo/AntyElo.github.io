@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<title>Orarul.xlsx</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.main {
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+			width: max-content;
+		}
+
+		.main tr > th:first-child {
+			background: #DDD;
+			position: sticky;
+			left: 0.5em;
+			z-index: 10;
+		}
+
+		.main th,
+		.main td:has(.card),
+		.main td:has(.time) {
+			background: #EEE;
+			border-radius: 0.25em;
+		}
+
+		.main th {
+			font-weight: bold;
+			padding-right: 0.25em;
+			padding-left: 0.25em;
+		}
+
+		.main .time {
+			font-weight: bold;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 1em;
+		}
+
+		.main tbody td {
+			width: 12em;
+			padding-right: 0.5em;
+			padding-left: 0.5em;
+		}
+
+
+		.main tbody .card {
+			font-family: "Ubuntu Condensed";
+			width: 100%;
+			height: 3em;
+			display: inline-grid;
+			grid-template-columns: max-content minmax(0, 1fr);
+			grid-template-rows: auto auto;
+			column-gap: 0.1em;
+			align-items: center;
+		}
+
+		.main tbody .card:has(.x) {
+			grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr);
+		}
+
+		.main tbody td:has(.card.gray) {
+			background: #ACE !important;
+		}
+		.main tbody td:has([title].card) {
+			background: #EEEEF8;
+		}
+
+		.main tbody .card > .a { text-align: left;  grid-column: 1; grid-row: 1 / span 2; writing-mode: vertical-lr; }
+		.main tbody .card > .b { text-align: right; grid-column: 2; grid-row: 1; white-space: nowrap; }
+		.main tbody .card > .c { text-align: right; grid-column: 2; grid-row: 2; white-space: nowrap; }
+		.main tbody .card > .x { text-align: left;  grid-column: 3; grid-row: 1 / span 2; writing-mode: vertical-lr;}
+		.main tbody .card > .y { text-align: right; grid-column: 4; grid-row: 1; white-space: nowrap; }
+		.main tbody .card > .z { text-align: right; grid-column: 4; grid-row: 2; white-space: nowrap; }
+
+	</style>
+</head>
+<body>
+	<table class="main">
+		<tbody>
+			<tr class="day">
+				<th rowspan="2">Grupele</th>
+				<th colspan="7">Luni</th>
+				<th colspan="7">Marți</th>
+				<th colspan="7">We</th>
+				<th colspan="7">Th</th>
+				<th colspan="7">Fr</th>
+			</tr>
+			<tr>
+				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
+				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
+				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
+				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
+				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
+				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
+
+				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
+				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
+				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
+				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
+				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
+				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
+
+				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
+				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
+				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
+				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
+				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
+				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
+
+				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
+				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
+				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
+				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
+				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
+				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
+
+				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
+				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
+				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
+				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
+				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
+				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
+			</tr>
+			<tr><th>SI-261</th>
+				<td><span class="card">
+					<span class="a">D01/03</span>
+					<span class="b">Criptografie</span>
+					<span class="c">Zaica M.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">611</span>
+					<span class="b">AM</span>
+					<span class="x">611</span>
+					<span class="y">ALGA</span>
+				</span></td>
+				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
+					<span class="a">6-2</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card" title="[ SI-26{1,2} ]">
+					<span class="a">505</span>
+					<span class="b">ESU</span>
+					<span class="c">Lazariuc C.</span>
+				</span></td>
+				<td />
+				<td />
+				<td />
+			</tr>
+			<tr><th>SI-262</th>
+				<td />
+				<td />
+				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
+					<span class="a">6-2</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card" title="[ SI-26{1,2} ]">
+					<span class="a">505</span>
+					<span class="b">ESU</span>
+					<span class="c">Lazariuc C.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">D01/03</span>
+					<span class="b">Criptografie</span>
+					<span class="c">Zaica M.</span>
+				</span></td>
+				<td />
+				<td />
+			</tr>
+			<tr><th>SI-263</th>
+				<td />
+				<td><span class="card" title="[ SI-26{3,4} ]">
+					<span class="a">614</span>
+					<span class="b">ESU</span>
+					<span class="c">Lazariuc C.</span>
+				</span></td>
+				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
+					<span class="a">6-2</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">402</span>
+					<span class="b">AM</span>
+					<span class="x">402</span>
+					<span class="y">ALGA</span>
+				</span></td>
+				<td />
+				<td />
+				<td />
+			</tr>
+			<tr><th>SI-264</th>
+				<td />
+				<td><span class="card" title="[ SI-26{3,4} ]">
+					<span class="a">614</span>
+					<span class="b">ESU</span>
+					<span class="c">Lazariuc C.</span>
+				</span></td>
+				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
+					<span class="a">6-2</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">D01/03</span>
+					<span class="b">Criptografie</span>
+					<span class="c">Zaica M.</span>
+				</span></td>
+				<td />
+				<td />
+				<td />
+			</tr>
+			<tr><th>SI-265</th>
+				<td />
+				<td><span class="card">
+					<span class="a">D01/03</span>
+					<span class="b">Criptografie</span>
+					<span class="c">Zaica M.</span>
+				</span></td>
+				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
+					<span class="a">6-2</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+			</tr>
+			<tr><th>SI-266</th>
+				<td />
+				<td />
+				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
+					<span class="a">6-2</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+			</tr>
+			<tr><th>SI-267</th>
+				<td />
+				<td><span class="card">
+					<span class="a">D02/04</span>
+					<span class="b">Criptografie</span>
+					<span class="c">Reșetnicov M.</span>
+				</span></td>
+				<td><span class="card" title="[ SI-26{7,8} ]">
+					<span class="a">614</span>
+					<span class="b">ESU</span>
+					<span class="c">Cărbune N.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">D02/04</span>
+					<span class="b">TP</span>
+					<span class="c">Paslari M.</span>
+				</span></td>
+			</tr>
+			<tr><th>SI-268</th>
+				<td><span class="card">
+					<span class="a">D02/04</span>
+					<span class="b">Criptografie</span>
+					<span class="c">Reșetnicov M.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">502</span>
+					<span class="b">TP</span>
+					<span class="c">Paslari M.</span>
+				</span></td>
+				<td><span class="card" title="[ SI-26{7,8} ]">
+					<span class="a">614</span>
+					<span class="b">ESU</span>
+					<span class="c">Cărbune N.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">502</span>
+					<span class="b">TP</span>
+					<span class="c">Paslari M.</span>
+					<span class="x">&#8962;</span>
+					<span class="y">Ed. Fizică</span>
+				</span></td>
+				<td />
+				<td />
+				<td />
+			</tr>
+			<tr><th>SI-269</th>
+				<td />
+				<td />
+				<td><span class="card">
+					<span class="a">D01/03</span>
+					<span class="b">TP</span>
+					<span class="c">Paslari M.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">114</span>
+					<span class="b">Criptografie</span>
+					<span class="c">Reșetnicov M.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">203</span>
+					<span class="b">ESM</span>
+					<span class="c">Cărbune N.</span>
+				</span></td>
+				<td />
+				<td />
+			</tr>
+			<tr><th>TI-261</th>
+				<td />
+				<td><span class="card">
+					<span class="a">107/512</span>
+					<span class="b">L. Engleză</span><span />
+				</span></td>
+				<td><span class="card" title="[ TI-26{1,2} ]">
+					<span class="a">505</span>
+					<span class="b">ESU</span>
+					<span class="c">Lazariuc C.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="x">202</span>
+					<span class="y">PC</span>
+					<span class="z">Vornicescu N.</span>
+				</span></td>
+				<td />
+				<td />
+				<td />
+			</tr>
+			<tr><th>TI-262</th>
+				<td />
+				<td><span class="card">
+					<span class="a">110/112</span>
+					<span class="b">PC</span>
+					<span class="c">Vornicescu M.</span>
+				</span></td>
+				<td><span class="card" title="[ TI-26{1,2} ]">
+					<span class="a">505</span>
+					<span class="b">ESU</span>
+					<span class="c">Lazariuc C.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">A03</span>
+					<span class="b">CDE<sup>#/2</sup></span>
+					<span class="c">Litra D.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">A03</span>
+					<span class="b">CDE<sup>#/2</sup></span>
+					<span class="c">Litra D.</span>
+				</span></td>
+				<td />
+				<td />
+			</tr>
+			<tr><th>TI-263</th>
+				<td />
+				<td />
+				<td><span class="card">
+					<span class="x">&#8962;</span>
+					<span class="y">Ed. Fizică</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">613</span>
+					<span class="b">PC</span>
+					<span class="c">Vornicescu N.</span>
+					<span class="x">623</span>
+					<span class="y">CDE</span>
+					<span class="z">Crețu V.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">107/606</span>
+					<span class="b">L. Engleză</span><span />
+				</span></td>
+				<td />
+				<td />
+			</tr>
+			<tr><th>TI-264</th>
+				<td><span class="card">
+					<span class="a">312</span>
+					<span class="b">L. Română</span>
+				</span></td>
+				<td><span class="card" title="[ TI-26{4,5} ]">
+					<span class="a">401</span>
+					<span class="b">ESU</span>
+					<span class="c">Cărbune N.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">203</span>
+					<span class="b">L. Engleză</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">&#8962;</span>
+					<span class="b">Ed. Fizică</span>
+					<span class="x" />
+				</span></td>
+				<td />
+				<td />
+				<td />
+			</tr>
+			<tr><th>TI-265</th>
+				<td><span class="card">
+					<span class="a">628</span>
+					<span class="b">PC</span>
+					<span class="c">Leah A.</span>
+				</span></td>
+				<td><span class="card" title="[ TI-26{4,5} ]">
+					<span class="a">401</span>
+					<span class="b">ESU</span>
+					<span class="c">Cărbune N.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">107</span>
+					<span class="b">L. Română</span>
+				</span></td>
+				<td />
+				<td />
+				<td />
+				<td />
+			</tr>
+			<tr><th>IA-261</th>
+				<td />
+				<td><span class="card gray" title="[ {IA,SD}-26{1,2} ]" >
+					<span class="a">101</span>
+					<span class="b">ICPP<sup>&#8224;</sup></span>
+					<span class="c">Istrati D.</span>
+					<span class="x">101</span>
+					<span class="y">TPA<sup>&#8224;</sup></span>
+					<span class="z">Istrati D.</span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA,SD}-26{1,2} ]" >
+					<span class="a">101</span>
+					<span class="b">TPA<sup>&#8224;</sup></span>
+					<span class="c">Strună V.</span>
+				</span></td>
+			</tr>
+			<tr><th>IA-262</th>
+				<td />
+				<td><span class="card gray" title="[ {IA,SD}-26{1,2} ]" >
+					<span class="a">101</span>
+					<span class="b">ICPP<sup>&#8224;</sup></span>
+					<span class="c">Istrati D.</span>
+					<span class="x">101</span>
+					<span class="y">TPA<sup>&#8224;</sup></span>
+					<span class="z">Istrati D.</span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA,SD}-26{1,2} ]" >
+					<span class="a">101</span>
+					<span class="b">TPA<sup>&#8224;</sup></span>
+					<span class="c">Strună V.</span>
+				</span></td>
+			</tr>
+			<tr><th>IA-263</th>
+				<td><span class="card gray" title="[ {IA-26{3,4},SD-263} ]" >
+					<span class="x">3-3</span>
+					<span class="y">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA-26{3,4},SD-263} ]" >
+					<span class="a">3-3</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Falico N.</span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA-26{3,4},SD-263} ]" >
+					<span class="a">3-3</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">709</span>
+					<span class="b">L. Engleză</span><span />
+				</span></td>
+			</tr>
+			<tr><th>IA-264</th>
+				<td><span class="card gray" title="[ {IA-26{3,4},SD-263} ]" >
+					<span class="x">3-3</span>
+					<span class="y">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA-26{3,4},SD-263} ]" >
+					<span class="a">3-3</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Falico N.</span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA-26{3,4},SD-263} ]" >
+					<span class="a">3-3</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card">
+					<span class="x">&#8962;</span>
+					<span class="y">Ed. Fizică</span>
+				</span></td>
+			</tr>
+			<tr><th>SD-261</th>
+				<td />
+				<td><span class="card gray" title="[ {IA,SD}-26{1,2} ]" >
+					<span class="a">101</span>
+					<span class="b">ICPP<sup>&#8224;</sup></span>
+					<span class="c">Istrati D.</span>
+					<span class="x">101</span>
+					<span class="y">TPA<sup>&#8224;</sup></span>
+					<span class="z">Istrati D.</span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA,SD}-26{1,2} ]" >
+					<span class="a">101</span>
+					<span class="b">TPA<sup>&#8224;</sup></span>
+					<span class="c">Strună V.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">201</span>
+					<span class="b">PC</span>
+					<span class="c">Tutunaru V.</span>
+					<span class="x" />
+				</span></td>
+			</tr>
+			<tr><th>SD-262</th>
+				<td />
+				<td><span class="card gray" title="[ {IA,SD}-26{1,2} ]" >
+					<span class="a">101</span>
+					<span class="b">ICPP<sup>&#8224;</sup></span>
+					<span class="c">Istrati D.</span>
+					<span class="x">101</span>
+					<span class="y">TPA<sup>&#8224;</sup></span>
+					<span class="z">Istrati D.</span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA,SD}-26{1,2} ]" >
+					<span class="a">101</span>
+					<span class="b">TPA<sup>&#8224;</sup></span>
+					<span class="c">Strună V.</span>
+				</span></td>
+				<td><span class="card">
+					<span class="a">&#8962;</span>
+					<span class="b">Ed. Fizică</span>
+					<span class="x">201</span>
+					<span class="y">PC</span>
+					<span class="z">Tutunaru V.</span>
+				</span></td>
+			</tr>
+			<tr><th>SD-263</th>
+				<td><span class="card gray" title="[ {IA-26{3,4},SD-263} ]" >
+					<span class="x">3-3</span>
+					<span class="y">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA-26{3,4},SD-263} ]" >
+					<span class="a">3-3</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Falico N.</span>
+				</span></td>
+				<td><span class="card gray" title="[ {IA-26{3,4},SD-263} ]" >
+					<span class="a">3-3</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+			</tr>
+			<tr><th>AI-261</th>
+				<td />
+				<td />
+				<td />
+				<td><span class="card">
+					<span class="a">310</span>
+					<span class="b">AM</span>
+					<span class="x">310</span>
+					<span class="y">ALGA</span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Kulev M.</span>
+				</span></td>
+			</tr>
+			<tr><th>AI-262</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>AI-263</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>AI-264</th>
+				<td />
+				<td />
+				<td />
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Kulev M.</span>
+				</span></td>
+			</tr>
+			<tr><th>R-261</th>
+				<td />
+				<td />
+				<td />
+				<td />
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Kulev M.</span>
+				</span></td>
+			</tr>
+			<tr><th>R-262</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>R-263</th>
+				<td />
+				<td />
+				<td />
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Kulev M.</span>
+				</span></td>
+			</tr>
+			<tr><th>R-264</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>CR-261</th>
+				<td />
+				<td />
+				<td />
+				<td />
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Kulev M.</span>
+				</span></td>
+			</tr>
+			<tr><th>CR-262</th>
+				<td />
+				<td />
+				<td />
+				<td />
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Kulev M.</span>
+				</span></td>
+			</tr>
+			<tr><th>CR-263</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>EA-261</th>
+				<td />
+				<td />
+				<td />
+				<td><span class="card">
+					<span class="a">414</span>
+					<span class="b">ÎS</span>
+					<span class="c">Magariu N.</span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Kulev M.</span>
+				</span></td>
+			</tr>
+			<tr><th>EA-262</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>MN-261</th>
+				<td />
+				<td />
+				<td />
+				<td />
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Kulev M.</span>
+				</span></td>
+			</tr>
+			<tr><th>MN-262</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>IBM-261</th>
+				<td />
+				<td />
+				<td />
+				<td />
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">AM<sup>&#8224;</sup></span>
+				</span></td>
+				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
+					<span class="a">5-1</span>
+					<span class="b">PC<sup>&#8224;</sup></span>
+					<span class="c">Kulev M.</span>
+				</span></td>
+			</tr>
+			<tr><th>IBM-262</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>FAF-261</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>FAF-262</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+			<tr><th>FAF-263</th>
+				<td />
+				<td><span class="card">
+					<span class="a"></span>
+					<span class="b"></span>
+					<span class="c"></span>
+				</span></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+<p><sup>#/2</sup> полгруппы идёт на лабораторные работы</p>
+<p><sup>&#8224;</sup> curs(?)</p>
+</html>
