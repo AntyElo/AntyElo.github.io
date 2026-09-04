@@ -1,1 +1,1 @@
-### [Orarul (beta)](./orarul.xlsx.html)
+### [Orarul (beta)](orarul.xslx.html )
