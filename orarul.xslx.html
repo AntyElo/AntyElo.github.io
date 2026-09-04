@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
-		.main {
+		body {
 			overflow-x: auto;
 			-webkit-overflow-scrolling: touch;
 			width: max-content;
@@ -14,7 +14,7 @@
 		.main tr > th:first-child {
 			background: #DDD;
 			position: sticky;
-			left: 0.5em;
+			left: 0; // 0.5em
 			z-index: 10;
 		}
 
@@ -138,12 +138,15 @@
 				<td><span class="card">
 					<span class="a">611</span>
 					<span class="b">AM</span>
+					<span class="c">Stanciu L.</span>
 					<span class="x">611</span>
 					<span class="y">ALGA</span>
+					<span class="z">Stanciu L.</span>
 				</span></td>
 				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
 					<span class="a">6-2</span>
 					<span class="b">AM<sup>&#8224;</sup></span>
+					<span class="c">Costaș A.</span>
 				</span></td>
 				<td><span class="card" title="[ SI-26{1,2} ]">
 					<span class="a">505</span>
@@ -160,6 +163,7 @@
 				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
 					<span class="a">6-2</span>
 					<span class="b">AM<sup>&#8224;</sup></span>
+					<span class="c">Costaș A.</span>
 				</span></td>
 				<td><span class="card" title="[ SI-26{1,2} ]">
 					<span class="a">505</span>
@@ -184,12 +188,15 @@
 				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
 					<span class="a">6-2</span>
 					<span class="b">AM<sup>&#8224;</sup></span>
+					<span class="c">Costaș A.</span>
 				</span></td>
 				<td><span class="card">
 					<span class="a">402</span>
 					<span class="b">AM</span>
+					<span class="c">Stanciu L.</span>
 					<span class="x">402</span>
 					<span class="y">ALGA</span>
+					<span class="z">Stanciu L.</span>
 				</span></td>
 				<td />
 				<td />
@@ -205,6 +212,7 @@
 				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
 					<span class="a">6-2</span>
 					<span class="b">AM<sup>&#8224;</sup></span>
+					<span class="c">Costaș A.</span>
 				</span></td>
 				<td><span class="card">
 					<span class="a">D01/03</span>
@@ -225,6 +233,7 @@
 				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
 					<span class="a">6-2</span>
 					<span class="b">AM<sup>&#8224;</sup></span>
+					<span class="c">Costaș A.</span>
 				</span></td>
 			</tr>
 			<tr><th>SI-266</th>
@@ -233,6 +242,7 @@
 				<td><span class="card gray" title="[ SI-26{1,2,3,4,5,6} ]" >
 					<span class="a">6-2</span>
 					<span class="b">AM<sup>&#8224;</sup></span>
+					<span class="c">Costaș A.</span>
 				</span></td>
 			</tr>
 			<tr><th>SI-267</th>
@@ -260,7 +270,7 @@
 					<span class="c">Reșetnicov M.</span>
 				</span></td>
 				<td><span class="card">
-					<span class="a">502</span>
+					<span class="a">501</span>
 					<span class="b">TP</span>
 					<span class="c">Paslari M.</span>
 				</span></td>
@@ -273,7 +283,7 @@
 					<span class="a">502</span>
 					<span class="b">TP</span>
 					<span class="c">Paslari M.</span>
-					<span class="x">&#8962;</span>
+					<span class="x">SS</span>
 					<span class="y">Ed. Fizică</span>
 				</span></td>
 				<td />
@@ -426,6 +436,14 @@
 					<span class="b">TPA<sup>&#8224;</sup></span>
 					<span class="c">Strună V.</span>
 				</span></td>
+				<td><span class="card">
+					<span class="a">606</span>
+					<span class="b">ALGA</span>
+					<span class="c">Vacaraș O.</span>
+					<span class="x">606</span>
+					<span class="y">AM</span>
+					<span class="z">Vacaraș O.</span>
+				</span></td>
 			</tr>
 			<tr><th>IA-262</th>
 				<td />
@@ -477,7 +495,7 @@
 					<span class="b">AM<sup>&#8224;</sup></span>
 				</span></td>
 				<td><span class="card">
-					<span class="x">&#8962;</span>
+					<span class="x">SS</span>
 					<span class="y">Ed. Fizică</span>
 				</span></td>
 			</tr>
@@ -519,7 +537,7 @@
 					<span class="c">Strună V.</span>
 				</span></td>
 				<td><span class="card">
-					<span class="a">&#8962;</span>
+					<span class="a">SS</span>
 					<span class="b">Ed. Fizică</span>
 					<span class="x">201</span>
 					<span class="y">PC</span>
@@ -548,8 +566,10 @@
 				<td><span class="card">
 					<span class="a">310</span>
 					<span class="b">AM</span>
+					<span class="c">Dohotaru L.</span>
 					<span class="x">310</span>
 					<span class="y">ALGA</span>
+					<span class="z">MrGalben</span>
 				</span></td>
 				<td><span class="card gray" title="[ {AI-26{1,4},R-26{1,3},CR-26{1,2},{EA,MN,IBM}-261} ]" >
 					<span class="a">5-1</span>
