@@ -9,14 +9,15 @@
 			overflow-x: auto;
 			-webkit-overflow-scrolling: touch;
 			width: max-content;
-			contain: layout;
 		}
 
 		.main tr > th:first-child {
 			background: #DDD;
 			position: sticky;
-			left: 0; // 0.5em
+			left: 0;
 			z-index: 10;
+			width: max-content;
+			box-sizing: border-box;
 		}
 
 		.main th,
@@ -76,16 +77,16 @@
 			background: #ACE !important;
 		}
 		.main tbody td:has(.card.grayright) {
-			background: linear-gradient(to right, #EEE #ACE) !important;
+			background: linear-gradient(to right, #EEE, #ACE) !important;
 		}
 		.main tbody td:has([title].card.grayright) {
-			background: linear-gradient(to right, #EEEEF8 #ACE) !important;
+			background: linear-gradient(to right, #EEEEF8, #ACE) !important;
 		}
 		.main tbody td:has(.card.grayleft) {
-			background: linear-gradient(to left, #EEE #ACE) !important;
+			background: linear-gradient(to left, #EEE, #ACE) !important;
 		}
 		.main tbody td:has([title].card.grayleft) {
-			background: linear-gradient(to left, #EEEEF8 #ACE) !important;
+			background: linear-gradient(to left, #EEEEF8, #ACE) !important;
 		}
 		.main tbody td:has([title].card) {
 			background: #EEEEF8;
@@ -1030,7 +1031,7 @@
 					<span class="c">Găidău M.</span>
 				</span></td>
 				<td><span class="palecard">Activități individuale/ în grup</span></td>
-				<td><span class="card grayright" title="[ FAF-26{1,2,3} ]">
+				<td><span class="card gray" title="[ FAF-26{1,2,3} ]">
 					<span class="a">3-3</span>
 					<span class="b">Proiect PCAS</span>
 					<span class="c">G C G M T C</span>
@@ -1054,7 +1055,7 @@
 				</span></td>
 				<td><span class="palecard">Activități individuale/ în grup</span></td>
 				<td><span class="palecard">Activități individuale/ în grup</span></td>
-				<td><span class="card grayright" title="[ FAF-26{1,2,3} ]">
+				<td><span class="card gray" title="[ FAF-26{1,2,3} ]">
 					<span class="a">3-3</span>
 					<span class="b">Proiect PCAS</span>
 					<span class="c">G C G M T C</span>
@@ -1081,7 +1082,7 @@
 					<span class="z">Cojuhari E.</span>
 				</span></td>
 				<td><span class="palecard">Activități individuale/ în grup</span></td>
-				<td><span class="card grayright" title="[ FAF-26{1,2,3} ]">
+				<td><span class="card gray" title="[ FAF-26{1,2,3} ]">
 					<span class="a">3-3</span>
 					<span class="b">Proiect PCAS</span>
 					<span class="c">G C G M T C</span>
