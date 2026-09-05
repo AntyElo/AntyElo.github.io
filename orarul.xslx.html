@@ -6,26 +6,45 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		body {
-			overflow-x: auto;
+			background: bottom right no-repeat fixed url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flocus.md%2Fassets%2Fimages%2Fproducts%2F1781%2F515873763-24535213046085325-4650634204018459424-n.jpg&f=1&nofb=1&ipt=5fa46cade59b3fdbe4055a38db6e19575638ac5e6011691cccaf9959ecb09962")
+		}
+		.main {
+			overflow: auto;
 			-webkit-overflow-scrolling: touch;
 			width: max-content;
+		}
+
+		.main .day [colspan] {
+			position: sticky;
+			top: 0.6em;
+			z-index: 8;
+		}
+
+		.main .time {
+			position: sticky;
+			top: 2em;
+			z-index: 8;
 		}
 
 		.main tr > th:first-child {
 			background: #DDD;
 			position: sticky;
-			left: 0;
+			left: 0.5em;
 			z-index: 10;
 			width: max-content;
-			box-sizing: border-box;
+		}
+
+		.main th,
+		.main td {
+			background: #FFF;
+			opacity: 0.9;
+			border-radius: 0.25em;
 		}
 
 		.main th,
 		.main td:has(.card),
-		.main td:has(.palecard),
-		.main td:has(.time) {
+		.main .time td {
 			background: #EEE;
-			border-radius: 0.25em;
 		}
 
 		.main th {
@@ -34,7 +53,7 @@
 			padding-left: 0.25em;
 		}
 
-		.main .time {
+		.main .time span {
 			font-weight: bold;
 			display: flex;
 			justify-content: space-between;
@@ -104,55 +123,57 @@
 <body>
 	<table class="main">
 		<tbody>
-			<tr class="day">
-				<th rowspan="2">Grupele</th>
-				<th colspan="7">Luni</th>
-				<th colspan="7">Marți</th>
-				<th colspan="7">We</th>
-				<th colspan="7">Th</th>
-				<th colspan="7">Fr</th>
-			</tr>
-			<tr>
-				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
-				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
-				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
-				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
-				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
-				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
-				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
+			<div class="daytime">
+				<tr class="day">
+					<th rowspan="2">Grupele</th>
+					<th colspan="7">Luni</th>
+					<th colspan="7">Marți</th>
+					<th colspan="7">We</th>
+					<th colspan="7">Th</th>
+					<th colspan="7">Fr</th>
+				</tr>
+				<tr class="time">
+					<td><span><span>8:00</span> <span>9:30</span> </span></td>
+					<td><span><span>9:45</span> <span>11:15</span></span></td>
+					<td><span><span>11:30</span><span>13:00</span></span></td>
+					<td><span><span>13:30</span><span>15:00</span></span></td>
+					<td><span><span>15:15</span><span>16:45</span></span></td>
+					<td><span><span>17:00</span><span>18:30</span></span></td>
+					<td><span><span>18:45</span><span>20:45</span></span></td>
 
-				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
-				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
-				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
-				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
-				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
-				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
-				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
+					<td><span><span>8:00</span> <span>9:30</span> </span></td>
+					<td><span><span>9:45</span> <span>11:15</span></span></td>
+					<td><span><span>11:30</span><span>13:00</span></span></td>
+					<td><span><span>13:30</span><span>15:00</span></span></td>
+					<td><span><span>15:15</span><span>16:45</span></span></td>
+					<td><span><span>17:00</span><span>18:30</span></span></td>
+					<td><span><span>18:45</span><span>20:45</span></span></td>
 
-				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
-				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
-				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
-				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
-				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
-				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
-				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
+					<td><span><span>8:00</span> <span>9:30</span> </span></td>
+					<td><span><span>9:45</span> <span>11:15</span></span></td>
+					<td><span><span>11:30</span><span>13:00</span></span></td>
+					<td><span><span>13:30</span><span>15:00</span></span></td>
+					<td><span><span>15:15</span><span>16:45</span></span></td>
+					<td><span><span>17:00</span><span>18:30</span></span></td>
+					<td><span><span>18:45</span><span>20:45</span></span></td>
 
-				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
-				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
-				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
-				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
-				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
-				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
-				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
+					<td><span><span>8:00</span> <span>9:30</span> </span></td>
+					<td><span><span>9:45</span> <span>11:15</span></span></td>
+					<td><span><span>11:30</span><span>13:00</span></span></td>
+					<td><span><span>13:30</span><span>15:00</span></span></td>
+					<td><span><span>15:15</span><span>16:45</span></span></td>
+					<td><span><span>17:00</span><span>18:30</span></span></td>
+					<td><span><span>18:45</span><span>20:45</span></span></td>
 
-				<td><span class="time"><span>8:00</span> <span>9:30</span> </span></td>
-				<td><span class="time"><span>9:45</span> <span>11:15</span></span></td>
-				<td><span class="time"><span>11:30</span><span>13:00</span></span></td>
-				<td><span class="time"><span>13:30</span><span>15:00</span></span></td>
-				<td><span class="time"><span>15:15</span><span>16:45</span></span></td>
-				<td><span class="time"><span>17:00</span><span>18:30</span></span></td>
-				<td><span class="time"><span>18:45</span><span>20:45</span></span></td>
-			</tr>
+					<td><span><span>8:00</span> <span>9:30</span> </span></td>
+					<td><span><span>9:45</span> <span>11:15</span></span></td>
+					<td><span><span>11:30</span><span>13:00</span></span></td>
+					<td><span><span>13:30</span><span>15:00</span></span></td>
+					<td><span><span>15:15</span><span>16:45</span></span></td>
+					<td><span><span>17:00</span><span>18:30</span></span></td>
+					<td><span><span>18:45</span><span>20:45</span></span></td>
+				</tr>
+			</div>
 			<tr><th>SI-261</th>
 				<td><span class="card">
 					<span class="a">D01/03</span>
