@@ -8,6 +8,7 @@
 		body {
 			background: center center no-repeat fixed url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flocus.md%2Fassets%2Fimages%2Fproducts%2F1781%2F515873763-24535213046085325-4650634204018459424-n.jpg&f=1&nofb=1&ipt=5fa46cade59b3fdbe4055a38db6e19575638ac5e6011691cccaf9959ecb09962")
 		}
+
 		.deadbox {
 			background: rgba(255, 255, 255, 0.9);
 			max-width: 100%;
@@ -15,6 +16,10 @@
 			overflow: auto;
 			-webkit-overflow-scrolling: touch;
 			width: max-content;
+		}
+
+		.main td > span {
+			width: 12em;
 		}
 
 		.main .day [colspan] {
@@ -35,6 +40,10 @@
 			left: 0;
 			z-index: 10;
 			width: max-content;
+		}
+
+		.main tr:hover {
+			background: #F8F8F8;
 		}
 
 		.main th,
@@ -75,13 +84,11 @@
 			text-align: center;
 		}
 		.main tbody .palecard {
-			width: 12em;
 			height: 3em;
 		}
 
 		.main tbody .card {
 			font-family: "Ubuntu Condensed";
-			width: 12em;
 			height: 3em;
 			display: inline-grid;
 			grid-template-columns: max-content minmax(0, 1fr);
