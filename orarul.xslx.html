@@ -6,9 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		body {
-			background: center right no-repeat fixed url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flocus.md%2Fassets%2Fimages%2Fproducts%2F1781%2F515873763-24535213046085325-4650634204018459424-n.jpg&f=1&nofb=1&ipt=5fa46cade59b3fdbe4055a38db6e19575638ac5e6011691cccaf9959ecb09962")
+			background: center center no-repeat fixed url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flocus.md%2Fassets%2Fimages%2Fproducts%2F1781%2F515873763-24535213046085325-4650634204018459424-n.jpg&f=1&nofb=1&ipt=5fa46cade59b3fdbe4055a38db6e19575638ac5e6011691cccaf9959ecb09962")
 		}
-		.main {
+		.deadbox {
+			max-width: 100%;
+			max-height: 100%;
 			overflow: auto;
 			-webkit-overflow-scrolling: touch;
 			width: max-content;
@@ -16,20 +18,20 @@
 
 		.main .day [colspan] {
 			position: sticky;
-			top: 0.5em;
+			top: 0em;
 			z-index: 8;
 		}
 
 		.main .time {
 			position: sticky;
-			top: 2em;
+			top: 1.5em;
 			z-index: 8;
 		}
 
 		.main tr > th:first-child {
 			background: #DDD;
 			position: sticky;
-			left: 0.5em;
+			left: 0;
 			z-index: 10;
 			width: max-content;
 		}
@@ -62,7 +64,6 @@
 		}
 
 		.main tbody td {
-			width: 12em;
 			padding-right: 0.5em;
 			padding-left: 0.5em;
 		}
@@ -73,13 +74,13 @@
 			text-align: center;
 		}
 		.main tbody .palecard {
-			width: 100%;
+			width: 12em;
 			height: 3em;
 		}
 
 		.main tbody .card {
 			font-family: "Ubuntu Condensed";
-			width: 100%;
+			width: 12em;
 			height: 3em;
 			display: inline-grid;
 			grid-template-columns: max-content minmax(0, 1fr);
@@ -121,59 +122,57 @@
 	</style>
 </head>
 <body>
-	<table class="main">
+	<div class="deadbox"><table class="main">
 		<tbody>
-			<div class="daytime">
-				<tr class="day">
-					<th rowspan="2">Grupele</th>
-					<th colspan="7">Luni</th>
-					<th colspan="7">Marți</th>
-					<th colspan="7">We</th>
-					<th colspan="7">Th</th>
-					<th colspan="7">Fr</th>
-				</tr>
-				<tr class="time">
-					<td><span><span>8:00</span> <span>9:30</span> </span></td>
-					<td><span><span>9:45</span> <span>11:15</span></span></td>
-					<td><span><span>11:30</span><span>13:00</span></span></td>
-					<td><span><span>13:30</span><span>15:00</span></span></td>
-					<td><span><span>15:15</span><span>16:45</span></span></td>
-					<td><span><span>17:00</span><span>18:30</span></span></td>
-					<td><span><span>18:45</span><span>20:45</span></span></td>
+			<tr class="day">
+				<th rowspan="2">Grupele</th>
+				<th colspan="7">Luni</th>
+				<th colspan="7">Marți</th>
+				<th colspan="7">We</th>
+				<th colspan="7">Th</th>
+				<th colspan="7">Fr</th>
+			</tr>
+			<tr class="time">
+				<td><span><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span><span>9:45</span> <span>11:15</span></span></td>
+				<td><span><span>11:30</span><span>13:00</span></span></td>
+				<td><span><span>13:30</span><span>15:00</span></span></td>
+				<td><span><span>15:15</span><span>16:45</span></span></td>
+				<td><span><span>17:00</span><span>18:30</span></span></td>
+				<td><span><span>18:45</span><span>20:45</span></span></td>
 
-					<td><span><span>8:00</span> <span>9:30</span> </span></td>
-					<td><span><span>9:45</span> <span>11:15</span></span></td>
-					<td><span><span>11:30</span><span>13:00</span></span></td>
-					<td><span><span>13:30</span><span>15:00</span></span></td>
-					<td><span><span>15:15</span><span>16:45</span></span></td>
-					<td><span><span>17:00</span><span>18:30</span></span></td>
-					<td><span><span>18:45</span><span>20:45</span></span></td>
+				<td><span><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span><span>9:45</span> <span>11:15</span></span></td>
+				<td><span><span>11:30</span><span>13:00</span></span></td>
+				<td><span><span>13:30</span><span>15:00</span></span></td>
+				<td><span><span>15:15</span><span>16:45</span></span></td>
+				<td><span><span>17:00</span><span>18:30</span></span></td>
+				<td><span><span>18:45</span><span>20:45</span></span></td>
 
-					<td><span><span>8:00</span> <span>9:30</span> </span></td>
-					<td><span><span>9:45</span> <span>11:15</span></span></td>
-					<td><span><span>11:30</span><span>13:00</span></span></td>
-					<td><span><span>13:30</span><span>15:00</span></span></td>
-					<td><span><span>15:15</span><span>16:45</span></span></td>
-					<td><span><span>17:00</span><span>18:30</span></span></td>
-					<td><span><span>18:45</span><span>20:45</span></span></td>
+				<td><span><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span><span>9:45</span> <span>11:15</span></span></td>
+				<td><span><span>11:30</span><span>13:00</span></span></td>
+				<td><span><span>13:30</span><span>15:00</span></span></td>
+				<td><span><span>15:15</span><span>16:45</span></span></td>
+				<td><span><span>17:00</span><span>18:30</span></span></td>
+				<td><span><span>18:45</span><span>20:45</span></span></td>
 
-					<td><span><span>8:00</span> <span>9:30</span> </span></td>
-					<td><span><span>9:45</span> <span>11:15</span></span></td>
-					<td><span><span>11:30</span><span>13:00</span></span></td>
-					<td><span><span>13:30</span><span>15:00</span></span></td>
-					<td><span><span>15:15</span><span>16:45</span></span></td>
-					<td><span><span>17:00</span><span>18:30</span></span></td>
-					<td><span><span>18:45</span><span>20:45</span></span></td>
+				<td><span><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span><span>9:45</span> <span>11:15</span></span></td>
+				<td><span><span>11:30</span><span>13:00</span></span></td>
+				<td><span><span>13:30</span><span>15:00</span></span></td>
+				<td><span><span>15:15</span><span>16:45</span></span></td>
+				<td><span><span>17:00</span><span>18:30</span></span></td>
+				<td><span><span>18:45</span><span>20:45</span></span></td>
 
-					<td><span><span>8:00</span> <span>9:30</span> </span></td>
-					<td><span><span>9:45</span> <span>11:15</span></span></td>
-					<td><span><span>11:30</span><span>13:00</span></span></td>
-					<td><span><span>13:30</span><span>15:00</span></span></td>
-					<td><span><span>15:15</span><span>16:45</span></span></td>
-					<td><span><span>17:00</span><span>18:30</span></span></td>
-					<td><span><span>18:45</span><span>20:45</span></span></td>
-				</tr>
-			</div>
+				<td><span><span>8:00</span> <span>9:30</span> </span></td>
+				<td><span><span>9:45</span> <span>11:15</span></span></td>
+				<td><span><span>11:30</span><span>13:00</span></span></td>
+				<td><span><span>13:30</span><span>15:00</span></span></td>
+				<td><span><span>15:15</span><span>16:45</span></span></td>
+				<td><span><span>17:00</span><span>18:30</span></span></td>
+				<td><span><span>18:45</span><span>20:45</span></span></td>
+			</tr>
 			<tr><th>SI-261</th>
 				<td><span class="card">
 					<span class="a">D01/03</span>
@@ -1225,8 +1224,8 @@
 				<td />
 			</tr>
 		</tbody>
-	</table>
-</body>
+	</table></div>
 <p><sup>#/2</sup> полгруппы идёт на лабораторные работы</p>
 <p><sup>&#8224;</sup> curs(?)</p>
+</body>
 </html>
