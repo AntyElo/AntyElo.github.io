@@ -44,51 +44,93 @@ MOCK = [[[{
 } for n in range(7)] for di in range(5)]  for oe in ("odd","even")]
 
 
-def map0(s: str) -> str:
+def map0(s: str) -> (str):
 	'shortener for room'
+	if not s:
+		return '', None
 	match s:
-		case "Aula 6-2 Henri Coandă": return "6-2"
-		case "6-2 Henri Coandă":      return "6-2"
-		case "3-3 Amdaris":           return "3-3"
-		case "Sala sportivă":         return "SSp"
-		case "D01/03":                return "D01-03"
-		case "D02/04":                return "D02-04"
-		case _: return s
+		case ( "Aula 6-2 Henri Coandă"
+			 | "6-2 Henri Coandă" ):  return "6-2", None
+		case "3-3 Amdaris":           return "3-3", None
+		case "Sala sportivă":         return "SSp", s
+		case ( "D01/03"
+			 | "D-01/D-03" ):         return "D01-03", None 
+		case "D02/04":                return "D02-04", None
+		case "D-01/D-04":             return "D01/04", None
+		case _: return s, None
 
 
 def map1(s: str) -> str:
 	'shortener for subject'
+	if not s:
+		return '', None
 	match s:
-		case "Activități Individuale/În Grup":                     return "Activități Individuale/În Grup"
-		case "Algebra Liniară Și Geometria Analitică":             return "ALGA"
-		case "Analiza Matematică":                                 return "AM"
-		case "Circuite Și Dispozitive Electronice":                return "CDE"
-		case "Criptografie":                                       return "Criptografia"
-		case "Engleza În Afaceri":                                 return "EA"
-		case "Educație Fizică":                                    return "Ed. Fizică"
-		case "Etică Și Integritate Academică":                     return "EIA"
-		case "Etică Și Securitatea Umană":                         return "ESU"
-		case "Fizică":                                             return "Fizică"
-		case "Ingineria Calculatoarelor Și Produse Program":       return "ICPP"
-		case "Introducere În Specialitate":                        return "IS"
-		case "Limba Română":                                       return "L. Română"
-		case "Limba Engleză":                                      return "L. Engleză"
-		case "Matematica Discretă":                                return "MD"
-		case "Securitatea Și Sănătatea În Muncă":                  return "SSM"
-		case "Proiectarea Conceptuală A Unei Aplicații Software":  return "PCAS"
-		case "TC":                                                 return "TC"
-		case "Tehnici De Programare":                              return "TP"
-		case "Tehnici De Programare Aplicată":                     return "TPA"
-		case "Programarea Calculatoarelor":                        return "PC"
-		case _: return s
+		case "Activități Individuale/În Grup":                     return s,              None
+		case "Algebra Liniară Și Geometria Analitică":             return "ALGA",         s
+		case "Analiza Matematică":                                 return "AM",           s
+		case "Circuite Și Dispozitive Electronice":                return "CDE",          s
+		case "Criptografie":                                       return "Criptografia", s
+		case "Engleza În Afaceri":                                 return "EA",           s
+		case "Educație Fizică":                                    return "Ed. Fizică",   s
+		case "Etică Și Integritate Academică":                     return "EIA",          s
+		case "Etică Și Securitatea Umană":                         return "ESU",          s
+		case "Fizică":                                             return "Fizică",       s
+		case "Ingineria Calculatoarelor Și Produse Program":       return "ICPP",         s
+		case "Introducere În Specialitate":                        return "IS",           s
+		case "Limba Română":                                       return "L. Română",    s
+		case "Limba Engleză":                                      return "L. Engleză",   s
+		case "Matematica Discretă":                                return "MD",           s
+		case "Securitatea Și Sănătatea În Muncă":                  return "SSM",          s
+		case "Proiectarea Conceptuală A Unei Aplicații Software":  return "PCAS",         s
+		case "TC":                                                 return "TC",           s
+		case "Tehnici De Programare":                              return "TP",           s
+		case "Tehnici De Programare Aplicată":                     return "TPA",          s
+		case "Programarea Calculatoarelor":                        return "PC",           s
+
+		case "Analiza Și Proiectarea Algoritmilor":                                     return "APA",    s
+		case "Analiza Și Sinteza Dispozitivelor Numerice":                              return "ASDN",   s
+		case "Analiza Și Specificarea Cerințelor Software":                             return "ASCS",   s
+		case "Anatomia Și Fiziologia Umană":                                            return "AFU",    s
+		case "Baze De Date":                                                            return "BD",     s
+		case "Bazele Statului Și Dreptului":                                            return "BSD",    s
+		case "Cadrul Legal Al Securității Informaționale":                              return "CLSI",   s
+		case "Circuite Electronice Integrate":                                          return "CEI",    s
+		case ( "Circuite Și Dispozitive Electronice" 
+			 | "1) Circuite Și Dispozitive Electronice" ):                              return "CDE",    s
+		case "Dispozitive Electronice Și Mijloace Tehnice De Protecție A Informației":  return "DEMTPI", s
+		case "Dispozitive Numerice Și Arhitecturi De Calculatoare":                     return "DNSAC",  s
+		case "Dreptul Proprietății Intelectuale":                                       return "DPI",    s
+		case "Filosofie Și Gândire Critică":                                            return "FGC",    s
+		case "Filosofie Și Gândire Inginerească":                                       return "FGI",    s
+		case "Fizica Corpului Solid":                                                   return "FCS",    s
+		case "Integrare Europeană":                                                     return "IE",     s
+		case ( "Matematici Speciale" 
+			 | "2) Matematici Speciale" ):                                              return "MS",     s
+		case "Măsurări Electronice":                                                    return "ME",     s
+		case "Programarea Orientată Pe Obiecte":                                        return "POO",    s
+		case ( "Proiectarea Asistată De Calculator A Dispozitivelor Medicale"
+			 | "Proiectarea Asistată De Calculator A Dispozitivelor Medicale 1/l" ):    return "PACDM",  s
+		case ( "Proiectarea Asistată În Electronică"
+			 | "Proiectarea Asistată În Electronică 1/l" ):                             return "PAE",    s
+		case "Structuri De Calcul Și De Comunicare":                                    return "SCC",    s
+		case "Teoria Sistemelor Automate":                                              return "TSA",    s
+
+		case _: return s, None
 
 
-def map2(s: str) -> str:
+def map2(s: str) -> (str, str):
 	'shortener for teacher'
+	if not s:
+		return '', None
 	if s == "Gavrilița M., Cazacu C., Graur E., Malîi A., Trubca D., Capitan P.":
-		return "GCGMTC"
-	return s
+		return "GCGMTC", s
+	return s, None
 
+def map3(gg):
+	'hints for groups'
+	if len(gg) < 1:
+		return ''
+	return f'[{", ".join(sorted(gg))}]'
 
 def main(t):
 	tt = {}
@@ -165,18 +207,21 @@ def main(t):
 				for k in range(7):
 					l = bak[k]
 					if l['lesson_type'] is None:
-						buf += "\n\t\t\t\t<td />"
+						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"/>'
 					elif l['subject'] == "Activități Individuale/În Grup":
-						buf += f'\n\t\t\t\t<td><span class="palecard">{l['subject']}</span></td>'
+						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"><span class="palecard">{l['subject']}</span></td>'
 					else:
-						buf += f'\n\t\t\t\t<td><span class="card lt-{l['lesson_type']}" data-index="{l['slot_index']}"'
-						buf += '' if l['slot_span'] == 1 else f' data-span="{l['slot_span']}"'
-						buf += '' if len(l['groups']) <= 1 else f' title="[{", ".join(sorted(l['groups']))}"]'
-						buf += '>'
-						buf += f'\n\t\t\t\t\t<span class="room">{   map0(l['room'])    if l['room']    else ''}</span>'
-						buf += f'\n\t\t\t\t\t<span class="subject">{map1(l['subject']) if l['subject'] else ''}</span>'
-						buf += f'\n\t\t\t\t\t<span class="teacher">{map2(l['teacher']) if l['teacher'] else ''}</span>'
-						buf += '\n\t\t\t\t</span></td>'
+						r, rh = map0(l['subject'])
+						s, sh = map1(l['subject'])
+						t, th = map2(l['teacher'])
+						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"><span class="card lt-{l['lesson_type']}"'
+						buf +=  '' if l['slot_span'] == 1 else f' data-span="{l['slot_span']}"'
+						buf += f' title="{'&#10;'.join(filter(bool, [map3(l['groups']), sh, th, rh]))}"'
+						buf +=  '>'
+						buf += f'\n\t\t\t\t\t<span class="room">{r}</span>'
+						buf += f'\n\t\t\t\t\t<span class="subject">{s}</span>'
+						buf += f'\n\t\t\t\t\t<span class="teacher">{t}</span>'
+						buf +=  '\n\t\t\t\t</span></td>'
 				buf += f"\n"
 		buf += f'\t\t\t</tr>\n'
 	print(buf)
