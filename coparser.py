@@ -44,20 +44,29 @@ MOCK = [[[{
 } for n in range(7)] for di in range(5)]  for oe in ("odd","even")]
 
 
-def map0(s: str) -> (str):
+def map0(s: str) -> (str, str, str):
 	'shortener for room'
 	if not s:
-		return '', None
+		return '', None, None
 	match s:
-		case ( "Aula 6-2 Henri Coandă"
-			 | "6-2 Henri Coandă" ):  return "6-2", None
-		case "3-3 Amdaris":           return "3-3", None
-		case "Sala sportivă":         return "SSp", s
+		case ( "6-2"
+			 | "Aula 6-2 Henri Coandă"
+			 | "6-2 Henri Coandă" ):  return "6-2", None, None
+		case ( "3-3"
+			 | "3-3 Amdaris"):        return "3-3", None, None
+		case "5-1":                   return "5-1", None, None
+		case "Sala sportivă":         return "SSp", None, s
 		case ( "D01/03"
-			 | "D-01/D-03" ):         return "D01-03", None 
-		case "D02/04":                return "D02-04", None
-		case "D-01/D-04":             return "D01/04", None
-		case _: return s, None
+			 | "D-01/D-03"
+			 | "D01-03" ):            return "D01", "D03", None
+		case ( "D02/04"
+			 | "D02-04" ):            return "D02", "D04", None
+		case "D-01/D-04":             return "D01", "D04", None
+	if '-' in s:
+		return *s.split('-', 1), None
+	if '/' in s:
+		return *s.split('/', 1), None
+	return s, None, None
 
 
 def map1(s: str) -> str:
@@ -77,8 +86,8 @@ def map1(s: str) -> str:
 		case "Fizică":                                             return "Fizică",       s
 		case "Ingineria Calculatoarelor Și Produse Program":       return "ICPP",         s
 		case "Introducere În Specialitate":                        return "IS",           s
-		case "Limba Română":                                       return "L. Română",    s
-		case "Limba Engleză":                                      return "L. Engleză",   s
+		case "Limba Română":                                       return "Română",       s
+		case "Limba Engleză":                                      return "Engleză",      s
 		case "Matematica Discretă":                                return "MD",           s
 		case "Securitatea Și Sănătatea În Muncă":                  return "SSM",          s
 		case "Proiectarea Conceptuală A Unei Aplicații Software":  return "PCAS",         s
@@ -211,7 +220,7 @@ def main(t):
 					elif l['subject'] == "Activități Individuale/În Grup":
 						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"><span class="palecard">{l['subject']}</span></td>'
 					else:
-						r, rh = map0(l['subject'])
+						r, ra, rh = map0(l['room'])
 						s, sh = map1(l['subject'])
 						t, th = map2(l['teacher'])
 						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"><span class="card lt-{l['lesson_type']}"'
@@ -219,6 +228,7 @@ def main(t):
 						buf += f' title="{'&#10;'.join(filter(bool, [map3(l['groups']), sh, th, rh]))}"'
 						buf +=  '>'
 						buf += f'\n\t\t\t\t\t<span class="room">{r}</span>'
+						if ra: buf += f'\n\t\t\t\t\t<span class="roomalt">{ra}</span>'
 						buf += f'\n\t\t\t\t\t<span class="subject">{s}</span>'
 						buf += f'\n\t\t\t\t\t<span class="teacher">{t}</span>'
 						buf +=  '\n\t\t\t\t</span></td>'
