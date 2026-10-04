@@ -141,6 +141,17 @@ def map3(gg):
 		return ''
 	return f'[{", ".join(sorted(gg))}]'
 
+def mapc(lt):
+	match lt:
+		case "unknown":             return "#EEE"
+		case "lab":                 return "#EAC"
+		case "lecture":             return "#ACE"
+		case "language":            return "#ECA"
+		case "physical_education":  return "#CEA"
+		case "project":             return "#AAA"
+		case "pale":                return "#AEC" # it is not used here
+		case _:                     return "red"
+
 def main(t):
 	tt = {}
 
@@ -205,7 +216,7 @@ def main(t):
 
 	buf = ''
 	for g in sorted(tt):
-		buf += f'\t\t\t<tr><th tabindex="0">{g}</th>'
+		buf += f'\t\t\t<tr><th tabindex="0" bgcolor="#DDD" valign="top">{g}</th>'
 		for oe in ("odd", "even"):
 			for d in DAY:
 				buf += f"\n\t\t\t\t<!-- {d} ({oe}) -->"
@@ -215,23 +226,24 @@ def main(t):
 						bak[l['slot_index']] = l
 				for k in range(7):
 					l = bak[k]
+					# bgcolor is used for old browsers (e. g. elinks) support
 					if l['lesson_type'] is None:
-						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"/>'
+						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}" bgcolor="#FFF" valign="top"></td>'
 					elif l['subject'] == "Activități Individuale/În Grup":
-						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"><span class="palecard">{l['subject']}</span></td>'
+						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}" bgcolor="#AEC" valign="top"><div class="palecard">{l['subject']}</div></td>'
 					else:
 						r, ra, rh = map0(l['room'])
 						s, sh = map1(l['subject'])
 						t, th = map2(l['teacher'])
-						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"><span class="card lt-{l['lesson_type']}"'
+						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}" bgcolor="{mapc(l['lesson_type'])}" valign="top"><div class="card lt-{l['lesson_type']}"'
 						buf +=  '' if l['slot_span'] == 1 else f' data-span="{l['slot_span']}"'
 						buf += f' title="{'&#10;'.join(filter(bool, [map3(l['groups']), sh, th, rh]))}"'
 						buf +=  '>'
-						buf += f'\n\t\t\t\t\t<span class="room">{r}</span>'
-						if ra: buf += f'\n\t\t\t\t\t<span class="roomalt">{ra}</span>'
-						buf += f'\n\t\t\t\t\t<span class="subject">{s}</span>'
-						buf += f'\n\t\t\t\t\t<span class="teacher">{t}</span>'
-						buf +=  '\n\t\t\t\t</span></td>'
+						buf += f'\n\t\t\t\t\t<div class="room">{r}</div>'
+						if ra: buf += f'\n\t\t\t\t\t<div class="roomalt">{ra}</div>'
+						buf += f'\n\t\t\t\t\t<div class="subject">{s}</div>'
+						buf += f'\n\t\t\t\t\t<div class="teacher">{t}</div>'
+						buf +=  '\n\t\t\t\t</div></td>'
 				buf += f"\n"
 		buf += f'\t\t\t</tr>\n'
 	print(buf)
