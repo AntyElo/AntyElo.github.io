@@ -216,7 +216,7 @@ def main(t):
 
 	buf = ''
 	for g in sorted(tt):
-		buf += f'\t\t\t<tr><th tabindex="0" bgcolor="#DDD" valign="top">{g}</th>'
+		buf += f'\t\t\t<tr><th tabindex="0" valign="top">{g}</th>'
 		for oe in ("odd", "even"):
 			for d in DAY:
 				buf += f"\n\t\t\t\t<!-- {d} ({oe}) -->"
@@ -228,9 +228,9 @@ def main(t):
 					l = bak[k]
 					# bgcolor is used for old browsers (e. g. elinks) support
 					if l['lesson_type'] is None:
-						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}" bgcolor="#FFF" valign="top"></td>'
+						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"></td>'
 					elif l['subject'] == "Activități Individuale/În Grup":
-						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}" bgcolor="#AEC" valign="top"><div class="palecard">{l['subject']}</div></td>'
+						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}" bgcolor="#AEC"><div class="palecard">{l['subject']}</div></td>'
 					else:
 						r, ra, rh = map0(l['room'])
 						s, sh = map1(l['subject'])
@@ -239,8 +239,8 @@ def main(t):
 						buf +=  '' if l['slot_span'] == 1 else f' data-span="{l['slot_span']}"'
 						buf += f' title="{'&#10;'.join(filter(bool, [map3(l['groups']), sh, th, rh]))}"'
 						buf +=  '>'
-						buf += f'\n\t\t\t\t\t<div class="room">{r}</div>'
-						if ra: buf += f'\n\t\t\t\t\t<div class="roomalt">{ra}</div>'
+						buf += f'\n\t\t\t\t\t<span class="room">{r}</span>'
+						if ra: buf += f'\n\t\t\t\t\t<span class="roomalt">{ra}</span>'
 						buf += f'\n\t\t\t\t\t<div class="subject">{s}</div>'
 						buf += f'\n\t\t\t\t\t<div class="teacher">{t}</div>'
 						buf +=  '\n\t\t\t\t</div></td>'
