@@ -218,7 +218,7 @@ def main(t):
 	for g in sorted(tt):
 		buf += f'\t\t\t<tr><th tabindex="0" valign="top">{g}</th>'
 		for oe in ("odd", "even"):
-			for d in DAY:
+			for di, d in enumerate(DAY):
 				buf += f"\n\t\t\t\t<!-- {d} ({oe}) -->"
 				bak = {}
 				for l in tt[g]:
@@ -228,14 +228,14 @@ def main(t):
 					l = bak[k]
 					# bgcolor is used for old browsers (e. g. elinks) support
 					if l['lesson_type'] is None:
-						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}"></td>'
+						buf += f'\n\t\t\t\t<td class="i{l['slot_index']}d{di}{oe}"></td>'
 					elif l['subject'] == "Activități Individuale/În Grup":
-						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}" bgcolor="#AEC"><div class="palecard">{l['subject']}</div></td>'
+						buf += f'\n\t\t\t\t<td class="i{l['slot_index']}d{di}{oe}" bgcolor="#AEC"><div class="palecard">{l['subject']}</div></td>'
 					else:
 						r, ra, rh = map0(l['room'])
 						s, sh = map1(l['subject'])
 						t, th = map2(l['teacher'])
-						buf += f'\n\t\t\t\t<td data-index="{l['slot_index']}" bgcolor="{mapc(l['lesson_type'])}" valign="top"><div class="card lt-{l['lesson_type']}"'
+						buf += f'\n\t\t\t\t<td class="i{l['slot_index']}d{di}{oe}" bgcolor="{mapc(l['lesson_type'])}" valign="top"><div class="card lt-{l['lesson_type']}"'
 						buf +=  '' if l['slot_span'] == 1 else f' data-span="{l['slot_span']}"'
 						buf += f' title="{'&#10;'.join(filter(bool, [map3(l['groups']), sh, th, rh]))}"'
 						buf +=  '>'
